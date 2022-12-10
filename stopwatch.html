@@ -1,0 +1,115 @@
+<html>
+    <head>
+        <style>
+            body{
+                background: black;
+            }
+            header{
+                min-height: 200px;
+                width: 1200px;
+                margin: 100px auto;
+                /* background: white; */
+            }
+            .a{
+                height: 250px;
+                width: 250px;
+                float: left;
+                border: 15px solid yellow;
+                box-sizing: border-box;
+                margin: 25px;
+                box-shadow: 0px 0px 25px 3px yellow inset;
+                border-radius: 10px;
+                font-size: 100px;
+                text-align: center;
+                color: yellow;
+                padding-top: 25px;
+                /* line-height: 220px; */
+            }
+            P{
+                font-size: 25PX;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <center>
+                <input type="button" onclick="demo1(this)" value="START"/>
+                <script>
+                    var h=0
+                    var m=0
+                    var s=0
+                    var ms=0
+                    function demo()
+                    {
+                        var hh=document.querySelector("#h")
+                        var mm=document.querySelector("#m")
+                        var ss=document.querySelector("#s") 
+                        var mls=document.querySelector("#ms")
+                        ms++
+                        if(ms==1000){
+                            ms=0
+                            s++
+                            if(s==60){
+                                s=0
+                                m++;
+                                if(m==60){
+                                    m=0
+                                    h++
+                                }
+                            }
+                        }
+                       if(h<10)
+                       hh.innerText="0"+h
+                       else
+                       hh.innerText=h
+                       if(m<10)
+                       mm.innerText="0"+m
+                       else
+                       mm.innerText=m
+                       if(s<10)
+                       ss.innerText="0"+s
+                       else
+                       ss.innerText=s
+                       if(ms<10)
+                       mls.innerText="00"+ms
+                       else
+                       mls.innerText=ms
+                    }
+                    
+                    function demo1(x){
+                        if(x.value=="START"){
+                            x.value="STOP"
+                            x.style.background="green"
+                            x.style.color="white"
+                            x.style.padding="10px"
+                            a=setInterval(demo,1)
+                        }
+                        else{
+                            x.value="START"
+                            x.style.background="red"
+                            x.style.color="white"
+                            x.style.padding="10px"
+                            clearInterval(a)
+                        }
+                    }
+                </script>
+            </center>
+            <div  class="a">
+                <b id="h">00</b>
+               <P>HOURS</P> 
+            </div>
+            <div  class="a">
+                <b id="m">00</b>
+                <P>MINUTES</P>
+            </div>
+            <div  class="a">
+                <b id="s">00</b>
+                <P>SECONDS</P>
+            </div>
+            <div  class="a">
+                <b id="ms">00</b>
+                <P>MILLISECONDS</P>
+            </div>
+        </header>
+    </body>
+</html>
